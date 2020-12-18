@@ -1,0 +1,34 @@
+type User {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String
+}
+
+type Token {
+  id: String
+  expiresIn: Int
+}
+
+input registerUserWithEmailInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+}
+
+input loginUserWithEmailInput {
+  email: String!
+  password: String!
+}
+
+type Query {
+  user(id: Int): User 
+  users(offset: Int, limit: Int): [User]
+}
+
+type Mutation {
+  registerUserWithEmail( input: registerUserWithEmailInput ): User
+  loginWithEmail( input:loginUserWithEmailInput ): Token 
+}

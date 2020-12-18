@@ -1,0 +1,10 @@
+/node_modules
+/dist
+/build
+/postgres-data
+/.nyc_output
+/coverage
+/apidoc
+/db.sql
+.env
+/database_postgres

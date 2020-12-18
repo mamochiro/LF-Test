@@ -1,0 +1,45 @@
+version: '3'
+services:
+
+  lf-app:
+    build:
+      context: ./
+      dockerfile: ./dev.dockerfile
+    command: sh ./docker-start.sh
+    volumes:
+      - ./:/usr/src/app
+    ports:
+    - "3000:3000"
+    environment:
+      NODE_PORT: 3000
+      NODE_ENV: "development"
+      DB_NAME: "account"
+      DB_USERNAME: "postgres"
+      DB_PASSWORD: "postgres"
+      DB_HOST: "lf-postgres"
+      DB_PORT: 5432
+      DB_DIALECT: "postgres"
+      EXAMPLE_ENV: "EXAMPLE"
+      
+  lf-postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - "POSTGRES_DB=account"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./database_postgres:/var/lib/postgresql/data
+    networks:
+      - fullstack
+    
+volumes:
+  api:
+  database_postgres:
+
+# Networks to be created to facilitate communication between containers
+networks:
+  fullstack:
+    driver: bridge

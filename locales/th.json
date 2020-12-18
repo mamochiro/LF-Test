@@ -1,0 +1,13 @@
+{
+	"Internal Server Error": "Internal Server Error",
+	"Please provide the right pattern of email": "Please provide the right pattern of email",
+	"Bad Request": "Bad Request",
+	"The email %s already existed in the system": "The email %s already existed in the system",
+	"The email or password is not correct": "The email or password is not correct",
+	"Authentication token is wrong": "Authentication token is wrong",
+	"Please provide the password at least %s-%s charactors": "Please provide the password at least %s-%s charactors",
+	"Please provide the name at least %s charactors": "Please provide the name at least %s charactors",
+	"Please provide the info at least %s charactors": "Please provide the info at least %s charactors",
+	"Please provide the first name at lease %s-%s charactors": "Please provide the first name at lease %s-%s charactors",
+	"Please provide the last name at lease %s-%s charactors": "Please provide the last name at lease %s-%s charactors"
+}

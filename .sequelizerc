@@ -1,0 +1,17 @@
+const path = require('path')
+
+if (process.env.NODE_ENV == 'production') {
+  module.exports = {
+    'config':          path.resolve('build', 'config', 'database.js'),
+    'migrations-path': path.resolve('build', 'migrations'),
+    'models-path':     path.resolve('build', 'models'),
+    'seeders-path':    path.resolve('build', 'seeders'),
+  }
+} else {
+  module.exports = {
+    'config':          path.resolve('src', 'config', 'database.js'),
+    'migrations-path': path.resolve('src', 'migrations'),
+    'models-path':     path.resolve('src', 'models'),
+    'seeders-path':    path.resolve('src', 'seeders'),
+  }
+}
