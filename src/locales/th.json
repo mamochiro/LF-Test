@@ -1,1 +1,9 @@
-{}
+{
+	"Please provide the right pattern of email": "Please provide the right pattern of email",
+	"Please provide the password at least %s-%s charactors": "Please provide the password at least %s-%s charactors",
+	"Bad Request": "Bad Request",
+	"Internal Server Error": "Internal Server Error",
+	"Please provide the first name at lease %s-%s charactors": "Please provide the first name at lease %s-%s charactors",
+	"Please provide the last name at lease %s-%s charactors": "Please provide the last name at lease %s-%s charactors",
+	"The email %s already existed in the system": "The email %s already existed in the system"
+}

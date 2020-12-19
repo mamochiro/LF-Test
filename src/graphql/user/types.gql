@@ -1,9 +1,15 @@
+enum Type {
+  ADMIN
+  OWNER
+}
+
 type User {
   id: Int!
   firstName: String!
   lastName: String!
   email: String!
   password: String
+  type: Type!
 }
 
 type Token {
@@ -16,6 +22,7 @@ input registerUserWithEmailInput {
   lastName: String!
   email: String!
   password: String!
+  type: Type!
 }
 
 input loginUserWithEmailInput {
@@ -24,11 +31,11 @@ input loginUserWithEmailInput {
 }
 
 type Query {
-  user(id: Int): User 
+  user(id: Int): User
   users(offset: Int, limit: Int): [User]
 }
 
 type Mutation {
-  registerUserWithEmail( input: registerUserWithEmailInput ): User
-  loginWithEmail( input:loginUserWithEmailInput ): Token 
+  registerUserWithEmail(input: registerUserWithEmailInput): User
+  loginWithEmail(input: loginUserWithEmailInput): Token
 }

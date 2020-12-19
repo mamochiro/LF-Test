@@ -20,10 +20,13 @@ services:
       DB_PORT: 5432
       DB_DIALECT: "postgres"
       EXAMPLE_ENV: "EXAMPLE"
-      
+      JWT_KEY: 1234
+    networks:
+      - fullstack
+    
   lf-postgres:
     image: postgres:latest
-    container_name: postgres
+    container_name: lf-postgres
     environment:
       - "POSTGRES_DB=account"
       - "POSTGRES_USER=postgres"
