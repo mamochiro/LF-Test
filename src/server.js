@@ -15,14 +15,6 @@ const LIMIT_QUERY_COMPLEXITY = 5000
 const LIMIT_QUERY_SIZE = 2000
 const IS_DEV = process.env.APP_ENV !== 'production'
 
-
-// listen to requests
-// if (NODE_ENV !== 'test') {
-//   app.listen(NODE_PORT, () => {
-//     console.log(`Server is running on port ${NODE_PORT} (${NODE_ENV})`)
-//   })
-// }
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -62,7 +54,7 @@ const server = new ApolloServer({
       // loaders,
       // userAgent: req.headers['user-agent'],
       clientIp: getClientIp(req),
-      // getAuthToken: () => req.user || {},
+      getAuthToken: () => req.user || {},
     }
   },
 })

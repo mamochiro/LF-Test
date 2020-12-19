@@ -2,7 +2,7 @@ import Sequelize from 'sequelize'
 import postgres from '../../../config/postgresDB'
 
 const model = postgres.define(
-  'users',
+  'farms',
   {
     id: {
       allowNull: false,
@@ -10,22 +10,19 @@ const model = postgres.define(
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    firstName: {
-      type: Sequelize.STRING(50)
+    name: {
+      type: Sequelize.STRING
     },
-    lastName: {
-      type: Sequelize.STRING(50)
+    location: {
+      type: Sequelize.STRING
     },
-    email: {
-      type: Sequelize.STRING(100),
-      unique: true
-    },
-    password: {
-      type: Sequelize.STRING(255)
-    },
-    type: {
-      type: Sequelize.ENUM,
-      values: ['ADMIN', 'OWNER']
+    owner_id: {
+      allowNull: false,
+      type: Sequelize.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     },
     createdAt: {
       allowNull: false,
@@ -46,7 +43,7 @@ const model = postgres.define(
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt',
-    tableName: 'users'
+    tableName: 'farms'
   }
 )
 

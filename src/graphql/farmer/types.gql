@@ -1,0 +1,13 @@
+enum Gender {
+  MALE
+  FEMALE
+}
+
+type Farmer {
+  id: Int!
+  firstName: String
+  lastName: String
+  gender: Gender
+  age: Int
+  farm: Farm
+}

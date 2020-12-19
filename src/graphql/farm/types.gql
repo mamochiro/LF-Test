@@ -1,0 +1,25 @@
+type Farm {
+  id: Int!
+  name: String
+  location: String
+  owner: User
+}
+
+input createFarmInput {
+  name: String!
+  location: String!
+}
+
+input updateFarmInput{
+  name: String!
+  location: String!
+}
+
+type Query {
+  farm(id: Int): Farm
+}
+
+type Mutation {
+  createFarm(input: createFarmInput): Farm
+  updateFarm(input: updateFarmInput): Farm
+}
