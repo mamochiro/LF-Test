@@ -23,6 +23,17 @@ export default {
         })
       }
 
+      if (!user) {
+        throw new UserInputError(e('Bad Request'), {
+          messages: [
+            {
+              key: 'userId',
+              message: e(`User Id does not exist`)
+            }
+          ]
+        })
+      }
+
       // find farm
       try {
         farm = await farmModels.read(data)
@@ -71,7 +82,65 @@ export default {
         farm: farm
       }
     },
-    async updateWorker() {},
+    async updateWorker(_, { input }) {
+      const { id, userId } = input
+
+      let user, update
+      // find user
+      try {
+        user = await userModels.read(userId)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[updateWorker.readUser]: unable to register a worker',
+          error
+        })
+      }
+
+      if (!user) {
+        throw new UserInputError(e('Bad Request'), {
+          messages: [
+            {
+              key: 'userId',
+              message: e(`User Id does not exist`)
+            }
+          ]
+        })
+      }
+
+      // check worker exist
+      let exist
+      try {
+        exist = await models.read(user.id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[updateWorker.read]: unable to check read',
+          error
+        })
+      }
+
+      if (exist) {
+        throw new UserInputError(e('Bad Request'), {
+          messages: [
+            {
+              key: 'userId',
+              message: e(`This user already have in farm`)
+            }
+          ]
+        })
+      }
+
+      // update worker
+      try {
+        update = await models.update(id, user.id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[updateWorker.update]: unable to register a worker',
+          error
+        })
+      }
+
+      return update
+    },
     async destroyWorker() {}
   }
 }

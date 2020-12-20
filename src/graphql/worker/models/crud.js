@@ -13,12 +13,11 @@ export const read = async (id) => {
   return worker
 }
 
-export const update = async (input) => {
-  const { id } = input
+export const update = async (id, userId) => {
+  console.log(id, userId)
   const update = await Worker.update(
     {
-      farmId: input.farmId,
-      userId: input.userId
+      userId
     },
     { where: { id } }
   )

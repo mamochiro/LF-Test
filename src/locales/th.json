@@ -10,5 +10,6 @@
 	"Cannot create": "Cannot create",
 	"You are not allowed to access this data": "You are not allowed to access this data",
 	"This user already have a farm": "This user already have a farm",
-	"This user already have in farm": "This user already have in farm"
+	"This user already have in farm": "This user already have in farm",
+	"User Id does not exist": "User Id does not exist"
 }
