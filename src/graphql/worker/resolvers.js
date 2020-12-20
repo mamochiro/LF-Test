@@ -141,6 +141,20 @@ export default {
 
       return update
     },
-    async destroyWorker() {}
+    async destroyWorker(_, { input }) {
+      const { id } = input
+
+      let destroy
+      try {
+        destroy = await models.destroy(id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[destroyWorker.destroy]: unable to destroy a worker',
+          error
+        })
+      }
+
+      return destroy
+    }
   }
 }

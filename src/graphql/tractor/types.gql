@@ -1,0 +1,28 @@
+type Tractor {
+  id: Int!
+  farm: Farm
+  name: String
+}
+
+input registerTractorInput {
+  name: String!
+}
+
+input updateTractorInput{
+  id: Int!
+  name: String!
+}
+
+input destroyTractorInput{
+  id: Int!
+}
+
+type Query {
+  tractor(id: Int): Tractor
+}
+
+type Mutation {
+  registerTractor(input: registerTractorInput): Tractor @auth(requires: [OWNER])
+  updateTractor(input: updateTractorInput): Boolean @auth(requires: [OWNER])
+  destroyTractor(input: destroyTractorInput): Boolean @auth(requires: [OWNER])
+}

@@ -14,7 +14,6 @@ export const read = async (id) => {
 }
 
 export const update = async (id, userId) => {
-  console.log(id, userId)
   const update = await Worker.update(
     {
       userId
@@ -31,4 +30,9 @@ export const workerExist = async (userId) => {
     }
   })
   return worker !== null
+}
+
+export const destroy = async (id) => {
+  const destroy = await Worker.destroy({ where: { id } })
+  return destroy
 }
