@@ -16,7 +16,7 @@ const model = postgres.define(
     location: {
       type: Sequelize.STRING
     },
-    owner_id: {
+    ownerId: {
       allowNull: false,
       type: Sequelize.INTEGER,
       references: {

@@ -1,6 +1,12 @@
 enum Type {
   ADMIN
   OWNER
+  FARMER
+}
+
+enum Gender {
+  MALE
+  FEMALE
 }
 
 type User {
@@ -10,6 +16,8 @@ type User {
   email: String!
   password: String
   type: Type!
+  gender: Gender
+  age: Int
 }
 
 type Token {
@@ -23,6 +31,8 @@ input registerUserWithEmailInput {
   email: String!
   password: String!
   type: Type!
+  gender: Gender
+  age: Int
 }
 
 input loginUserWithEmailInput {

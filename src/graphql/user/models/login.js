@@ -30,6 +30,7 @@ export const loginByEmail = async (email, password, remember) => {
       email: user.email,
       firstName: user.firstName,
       lastName: user.lastName,
+      type: user.type
     },
     expiresIn,
   })
