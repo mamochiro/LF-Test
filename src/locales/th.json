@@ -8,5 +8,7 @@
 	"The email %s already existed in the system": "The email %s already existed in the system",
 	"Authentication token is wrong": "Authentication token is wrong",
 	"Cannot create": "Cannot create",
-	"You are not allowed to access this data": "You are not allowed to access this data"
+	"You are not allowed to access this data": "You are not allowed to access this data",
+	"This user already have a farm": "This user already have a farm",
+	"This user already have in farm": "This user already have in farm"
 }

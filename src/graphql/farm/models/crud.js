@@ -9,15 +9,23 @@ export const create = async (input, auth) => {
   return farm
 }
 
+export const read = async (auth) => {
+  const farm = await Farm.findOne({
+    where: {
+      ownerId: auth.id
+    }
+  })
+
+  return farm
+}
+
 export const update = async (input, auth) => {
-  const id = input.id
   const update = await Farm.update(
     {
       name: input.name,
       location: input.location,
-      ownerId: auth.id
     },
-    { where: { id } }
+    { where: { ownerId: auth.id } }
   )
   return update[0]
 }

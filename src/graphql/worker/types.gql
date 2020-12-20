@@ -1,0 +1,28 @@
+type Worker {
+  id: Int!
+  farm: Farm
+  user: User
+}
+
+input registerWorkerInput {
+  userId: Int!
+}
+
+input updateWorkerInput{
+  id: Int!
+  userId: Int!
+}
+
+input destroyWorkerInput{
+  id: Int!
+}
+
+type Query {
+  worker(id: Int): Worker
+}
+
+type Mutation {
+  registerWorker(input: registerWorkerInput): Worker @auth(requires: [OWNER])
+  updateWorker(input: updateWorkerInput): Boolean @auth(requires: [OWNER])
+  destroyWorker(input: destroyWorkerInput): Boolean @auth(requires: [OWNER])
+}
