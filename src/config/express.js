@@ -1,5 +1,5 @@
 import express from 'express'
-import morgan from 'morgan'
+// import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import compress from 'compression'
 import methodOverride from 'method-override'
@@ -18,11 +18,11 @@ const app = express()
 app.enable('trust proxy')
 
 // request logging. dev: console | production: file
-app.use(
-  morgan(
-    ':method :url :status :res[content-length] - :response-time ms :user-agent :referrer :remote-addr'
-  )
-)
+// app.use(
+//   morgan(
+//     ':method :url :status :res[content-length] - :response-time ms :user-agent :referrer :remote-addr'
+//   )
+// )
 
 // parse body params and attache them to req.body
 app.use(bodyParser.json())

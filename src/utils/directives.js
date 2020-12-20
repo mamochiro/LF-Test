@@ -1,6 +1,6 @@
-import { AuthenticationError } from 'apollo-server'
+import { AuthenticationError, SchemaDirectiveVisitor } from 'apollo-server'
 import { defaultFieldResolver } from 'graphql'
-import { SchemaDirectiveVisitor } from 'graphql-tools'
+// import {  } from 'graphql-tools'
 import { get, includes } from 'lodash'
 import { e } from './localize'
 
@@ -13,10 +13,10 @@ class AuthDirective extends SchemaDirectiveVisitor {
 
     const fields = objectType.getFields()
 
-    Object.keys(fields).forEach(fieldName => {
+    Object.keys(fields).forEach((fieldName) => {
       const field = fields[fieldName]
       const { resolve = defaultFieldResolver } = field
-      field.resolve = async function(...args) {
+      field.resolve = async function (...args) {
         const requiredRole = field._requiredAuthRole || objectType._requiredAuthRole
 
         if (!requiredRole) {
@@ -24,7 +24,7 @@ class AuthDirective extends SchemaDirectiveVisitor {
         }
 
         const context = args[2]
-        const role = get(context.authToken, 'data.role', false)
+        const role = get(context.authToken, 'data.type', false)
 
         if (!role) {
           throw new AuthenticationError(e('You are not allowed to access this data'))
@@ -51,5 +51,5 @@ class AuthDirective extends SchemaDirectiveVisitor {
 }
 
 export default {
-  auth: AuthDirective,
+  auth: AuthDirective
 }

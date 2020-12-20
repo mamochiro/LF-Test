@@ -6,5 +6,7 @@
 	"Please provide the first name at lease %s-%s charactors": "Please provide the first name at lease %s-%s charactors",
 	"Please provide the last name at lease %s-%s charactors": "Please provide the last name at lease %s-%s charactors",
 	"The email %s already existed in the system": "The email %s already existed in the system",
-	"Authentication token is wrong": "Authentication token is wrong"
+	"Authentication token is wrong": "Authentication token is wrong",
+	"Cannot create": "Cannot create",
+	"You are not allowed to access this data": "You are not allowed to access this data"
 }
