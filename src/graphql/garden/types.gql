@@ -1,0 +1,27 @@
+type Garden {
+  id: Int!
+  name: String
+}
+
+input createGardenInput {
+  name: String!
+  farmId: Int!
+}
+
+input updateGardenInput{
+   name: String!
+}
+
+input destroyGardenInput{
+   id: Int!
+}
+
+type Query {
+  garden(id: Int): Garden
+}
+
+type Mutation {
+  createGarden(input: createGardenInput): Garden @auth(requires: [OWNER])
+  updateGarden(input: updateGardenInput): Boolean @auth(requires: [OWNER])
+  destroyGarden(input: destroyGardenInput): Boolean @auth(requires: [OWNER])
+}

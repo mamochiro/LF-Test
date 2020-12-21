@@ -1,0 +1,35 @@
+type Event {
+  id: Int!
+  garden: Garden
+  name: String
+  area: Float
+  cost: Float
+}
+
+input createEventInput {
+  name: String!
+  gardenId: Int!
+  area: Float!
+  cost: Float!
+}
+
+input updateEventInput{
+  id: Int!
+  name: String!
+  area: Float!
+  cost: Float!
+}
+
+input destroyEventInput{
+  id: Int!
+}
+
+type Query {
+  event(id: Int): Event
+}
+
+type Mutation {
+  createEvent(input: createEventInput): Event @auth(requires: [OWNER])
+  updateEvent(input: updateEventInput): Boolean @auth(requires: [OWNER])
+  destroyEvent(input: destroyEventInput): Boolean @auth(requires: [OWNER])
+}
