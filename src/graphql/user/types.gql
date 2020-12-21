@@ -3,7 +3,7 @@ directive @auth(requires: [Type] = [ADMIN]) on OBJECT | FIELD_DEFINITION
 enum Type {
   ADMIN
   OWNER
-  FARMER
+  WORKER
 }
 
 enum Gender {

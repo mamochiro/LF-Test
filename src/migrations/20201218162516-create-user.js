@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING(255)
       },
       type: {
-        type: Sequelize.ENUM('ADMIN', 'OWNER', 'FARMER'),
+        type: Sequelize.ENUM('ADMIN', 'OWNER', 'WORKER'),
         allowNull: false
       },
       gender: {

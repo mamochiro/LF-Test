@@ -20,6 +20,6 @@ type Query {
 }
 
 type Mutation {
-  createFarm(input: createFarmInput): Farm @auth(requires: [OWNER])
+  registerFarm(input: createFarmInput): Farm @auth(requires: [OWNER])
   updateFarm(input: updateFarmInput): Boolean @auth(requires: [OWNER])
 }

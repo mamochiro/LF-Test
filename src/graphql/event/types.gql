@@ -29,7 +29,7 @@ type Query {
 }
 
 type Mutation {
-  registerEvent(input: registerEventInput): Event @auth(requires: [OWNER])
-  updateEvent(input: updateEventInput): Boolean @auth(requires: [OWNER])
-  destroyEvent(input: destroyEventInput): Boolean @auth(requires: [OWNER])
+  registerEvent(input: registerEventInput): Event @auth(requires: [WORKER])
+  updateEvent(input: updateEventInput): Boolean @auth(requires: [WORKER])
+  destroyEvent(input: destroyEventInput): Boolean @auth(requires: [WORKER])
 }

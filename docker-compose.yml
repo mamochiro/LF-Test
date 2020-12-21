@@ -23,6 +23,8 @@ services:
       JWT_KEY: 1234
     networks:
       - fullstack
+    depends_on:
+      - lf-postgres
     
   lf-postgres:
     image: postgres:latest

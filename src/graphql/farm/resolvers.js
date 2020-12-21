@@ -11,7 +11,7 @@ export default {
     }
   },
   Mutation: {
-    async createFarm(_, { input }, { authToken }) {
+    async registerFarm(_, { input }, { authToken }) {
       const { data } = authToken
 
       // check farm exist
