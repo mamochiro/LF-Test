@@ -6,7 +6,7 @@ type Event {
   cost: Float
 }
 
-input createEventInput {
+input registerEventInput {
   name: String!
   gardenId: Int!
   area: Float!
@@ -29,7 +29,7 @@ type Query {
 }
 
 type Mutation {
-  createEvent(input: createEventInput): Event @auth(requires: [OWNER])
+  registerEvent(input: registerEventInput): Event @auth(requires: [OWNER])
   updateEvent(input: updateEventInput): Boolean @auth(requires: [OWNER])
   destroyEvent(input: destroyEventInput): Boolean @auth(requires: [OWNER])
 }

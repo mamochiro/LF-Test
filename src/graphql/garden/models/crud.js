@@ -1,8 +1,9 @@
 import Garden from './orm'
 
-export const create = async (input) => {
+export const create = async (input, farmId) => {
   const farm = await Garden.create({
-    ...input
+    ...input,
+    farmId
   })
   return farm
 }

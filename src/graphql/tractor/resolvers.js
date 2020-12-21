@@ -1,4 +1,4 @@
-import { ApolloError } from 'apollo-server'
+import { ApolloError, UserInputError } from 'apollo-server'
 import models from './models'
 import { e } from '../../utils/localize'
 import { INTERNAL_SERVER_ERROR } from '../../utils/errors'
@@ -20,6 +20,17 @@ export default {
         throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
           ctx: '[registerTractor.readFarm]: unable to register a tractor',
           error
+        })
+      }
+
+      if (!farm) {
+        throw new UserInputError(e('Bad Request'), {
+          messages: [
+            {
+              key: '_error',
+              message: e(`This owner does not have a farm`)
+            }
+          ]
         })
       }
 
