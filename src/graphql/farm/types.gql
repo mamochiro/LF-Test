@@ -16,7 +16,7 @@ input updateFarmInput{
 }
 
 type Query {
-  farm(id: Int): Farm
+  farm(id: Int!): Farm
 }
 
 type Mutation {

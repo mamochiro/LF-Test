@@ -6,7 +6,52 @@ import { e } from '../../utils/localize'
 import { INTERNAL_SERVER_ERROR } from '../../utils/errors'
 
 export default {
-  Query: {},
+  Worker: {
+    async farm({ farmId }) {
+      let farm
+
+      try {
+        farm = await farmModels.farm(farmId)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[farm.read]: unable to query a farm',
+          error
+        })
+      }
+
+      return farm
+    },
+    async user({ userId }) {
+      let user
+
+      try {
+        user = await userModels.read(userId)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[user.read]: unable to query a user',
+          error
+        })
+      }
+
+      return user
+    }
+  },
+  Query: {
+    async worker(_, { id }) {
+      let worker
+      // find work
+      try {
+        worker = await models.read(id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[worker.read]: unable to query a worker',
+          error
+        })
+      }
+
+      return worker
+    }
+  },
   Mutation: {
     async registerWorker(_, { input }, { authToken }) {
       const { userId } = input
@@ -41,6 +86,17 @@ export default {
         throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
           ctx: '[registerWorker.readFarm]: unable to register a worker',
           error
+        })
+      }
+
+      if (!farm) {
+        throw new UserInputError(e('Bad Request'), {
+          messages: [
+            {
+              key: '__error',
+              message: e(`This User does not have a farm`)
+            }
+          ]
         })
       }
 

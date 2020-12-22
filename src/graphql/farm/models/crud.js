@@ -23,9 +23,14 @@ export const update = async (input, auth) => {
   const update = await Farm.update(
     {
       name: input.name,
-      location: input.location,
+      location: input.location
     },
     { where: { ownerId: auth.id } }
   )
   return update[0]
+}
+
+export const farm = async (id) => {
+  const farm = await Farm.findByPk(id)
+  return farm
 }

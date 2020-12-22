@@ -5,7 +5,36 @@ import { INTERNAL_SERVER_ERROR } from '../../utils/errors'
 import farmModels from '../farm/models'
 
 export default {
-  Query: {},
+  Garden: {
+    async farm({ farmId }) {
+      let farm
+
+      try {
+        farm = await farmModels.farm(farmId)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[farm.read]: unable to query a farm',
+          error
+        })
+      }
+
+      return farm
+    }
+  },
+  Query: {
+    async garden(_, { id }) {
+      let garden
+      try {
+        garden = await models.read(id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[query.garden]: unable to query a garden',
+          error
+        })
+      }
+      return garden
+    }
+  },
   Mutation: {
     async registerGarden(_, { input }, { authToken }) {
       const { data } = authToken

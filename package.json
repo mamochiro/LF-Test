@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "apidoc": {
-    "title": "Robowealth API documents",
-    "url": "https://apidoc.robowealth.co.th"
-  },
   "scripts": {
     "apidoc": "apidoc -i src/ -o apidoc/",
     "db:migrate": "sequelize db:migrate",

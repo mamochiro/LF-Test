@@ -8,18 +8,13 @@ export default {
   User: {
     password() {
       return null
-    },
+    }
   },
   Query: {
-    async user() {
-      // const user = await models.getUser(id)
-      // return user
-      return null
-    },
-    // async users(_, args) {
-    //   const users = await models.getUserLists(args)
-    //   return users
-    // },
+    async user(_, { id }) {
+      const user = await models.read(id)
+      return user
+    }
   },
   Mutation: {
     async registerUserWithEmail(_, { input }) {
@@ -31,7 +26,7 @@ export default {
       } catch (error) {
         throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
           ctx: '[user.registerUserWithEmail]: unable to check email existing',
-          error,
+          error
         })
       }
 
@@ -40,9 +35,9 @@ export default {
           messages: [
             {
               key: 'email',
-              message: e(`The email %s already existed in the system`, input.email),
-            },
-          ],
+              message: e(`The email %s already existed in the system`, input.email)
+            }
+          ]
         })
       }
 
@@ -52,7 +47,7 @@ export default {
       } catch (error) {
         throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
           ctx: '[user.registerUserWithEmail]: unable to create a user',
-          error,
+          error
         })
       }
       return user
@@ -67,7 +62,7 @@ export default {
       } catch (error) {
         throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
           ctx: '[user.loginByEmail]: unable logged in for the user',
-          error,
+          error
         })
       }
 
@@ -76,13 +71,13 @@ export default {
           messages: [
             {
               key: '_error',
-              message: e(`The email or password is not correct`),
-            },
-          ],
+              message: e(`The email or password is not correct`)
+            }
+          ]
         })
       }
 
       return token
-    },
-  },
+    }
+  }
 }

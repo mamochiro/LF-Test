@@ -43,8 +43,8 @@ input loginUserWithEmailInput {
 }
 
 type Query {
-  user(id: Int): User
-  users(offset: Int, limit: Int): [User]
+  user(id: Int!): User
+  # users(offset: Int, limit: Int): [User]
 }
 
 type Mutation {

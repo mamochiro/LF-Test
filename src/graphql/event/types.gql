@@ -15,6 +15,7 @@ input registerEventInput {
 
 input updateEventInput{
   id: Int!
+  gardenId: Int!
   name: String!
   area: Float!
   cost: Float!

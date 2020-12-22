@@ -18,7 +18,7 @@ input destroyGardenInput {
 }
 
 type Query {
-  garden(id: Int): Garden
+  garden(id: Int!): Garden
 }
 
 type Mutation {

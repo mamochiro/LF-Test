@@ -2,12 +2,39 @@ import { UserInputError, ApolloError } from 'apollo-server'
 import { e } from '../../utils/localize'
 import { INTERNAL_SERVER_ERROR } from '../../utils/errors'
 import models from './models'
-// import { isEmpty } from 'lodash'
+import userModels from '../user/models'
 
 export default {
+  Farm: {
+    async owner({ ownerId }) {
+      let user
+
+      try {
+        user = await userModels.read(ownerId)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[Farm.owner]: unable to query a user',
+          error
+        })
+      }
+
+      return user
+    }
+  },
   Query: {
-    async farm() {
-      return null
+    async farm(_, { id }) {
+      let farm
+
+      try {
+        farm = await models.farm(id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[Query.farm]: unable to query a farm',
+          error
+        })
+      }
+
+      return farm
     }
   },
   Mutation: {
