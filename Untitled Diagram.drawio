@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-22T07:36:38.727Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4356.6 Safari/537.36" etag="OcsIEPVJR2hv4G8yuD7S" version="14.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-22T07:41:13.264Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4356.6 Safari/537.36" etag="8xeyLO3R6Ll36RflKLj2" version="14.1.1" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
     <mxGraphModel dx="1156" dy="1066" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -22,11 +22,11 @@
         <mxCell id="OhO_-kwdSSa76K_JumeM-10" value="&lt;font style=&quot;font-size: 30px&quot;&gt;Doing&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="400" y="730" width="60" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="OhO_-kwdSSa76K_JumeM-13" value="font end" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="740" y="910" width="120" height="60" as="geometry" />
+        <mxCell id="OhO_-kwdSSa76K_JumeM-13" value="font end&lt;br&gt;(web,mobile)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="910" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="OhO_-kwdSSa76K_JumeM-15" value="s3 or gcs" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
-          <mxGeometry x="750" y="1010" width="60" height="80" as="geometry" />
+          <mxGeometry x="857" y="1000" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="OhO_-kwdSSa76K_JumeM-17" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OhO_-kwdSSa76K_JumeM-1" target="OhO_-kwdSSa76K_JumeM-2">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -46,14 +46,14 @@
             <mxPoint x="750" y="840" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OhO_-kwdSSa76K_JumeM-20" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="OhO_-kwdSSa76K_JumeM-15" target="OhO_-kwdSSa76K_JumeM-2">
+        <mxCell id="OhO_-kwdSSa76K_JumeM-20" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="OhO_-kwdSSa76K_JumeM-15" target="OhO_-kwdSSa76K_JumeM-2">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="800" y="980" as="sourcePoint" />
             <mxPoint x="850" y="930" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="OhO_-kwdSSa76K_JumeM-21" value="redis cluster" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
-          <mxGeometry x="750" y="790" width="60" height="80" as="geometry" />
+          <mxGeometry x="857" y="800" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="OhO_-kwdSSa76K_JumeM-22" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" edge="1" parent="1" source="OhO_-kwdSSa76K_JumeM-2" target="OhO_-kwdSSa76K_JumeM-21">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -61,8 +61,8 @@
             <mxPoint x="720" y="1130" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OhO_-kwdSSa76K_JumeM-29" value="future" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="790" y="730" width="40" height="20" as="geometry" />
+        <mxCell id="OhO_-kwdSSa76K_JumeM-29" value="&lt;font style=&quot;font-size: 30px&quot;&gt;future&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="870" y="730" width="40" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
