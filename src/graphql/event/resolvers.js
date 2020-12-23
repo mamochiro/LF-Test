@@ -2,12 +2,80 @@ import { ApolloError, UserInputError } from 'apollo-server'
 import { e } from '../../utils/localize'
 import { INTERNAL_SERVER_ERROR } from '../../utils/errors'
 import models from './models'
-// import farmModels from '../farm/models'
+import farmModels from '../farm/models'
 import workerModels from '../worker/models'
 import gardenModels from '../garden/models'
 
 export default {
-  Query: {},
+  Query: {
+    async event(_, { id }) {
+      let event
+
+      try {
+        event = await models.farm(id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[Query.event]: unable to query a event',
+          error
+        })
+      }
+
+      return event
+    },
+    async summary(__, _, { authToken }) {
+      let revenue, expenditure, farm, gardens
+
+      const { data } = authToken
+
+      // find farm
+      try {
+        farm = await farmModels.read(data)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[registerGarden.readFarm]: unable to read a farm',
+          error
+        })
+      }
+
+      if (!farm) {
+        throw new UserInputError(e('Bad Request'), {
+          messages: [
+            {
+              key: 'farm',
+              message: e(`This user does not have a farm`)
+            }
+          ]
+        })
+      }
+
+      try {
+        gardens = await gardenModels.gardens(farm.id)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[registerGarden.gardens]: unable to read a garden',
+          error
+        })
+      }
+
+      const gardenIds = gardens.map((garden) => garden.id)
+
+      try {
+        expenditure = await models.expenditure(gardenIds)
+      } catch (error) {
+        throw new ApolloError(e('Internal Server Error'), INTERNAL_SERVER_ERROR, {
+          ctx: '[Query.summary]: unable to query a expenditure',
+          error
+        })
+      }
+      console.log(expenditure)
+      revenue = 0
+
+      return {
+        revenue,
+        expenditure
+      }
+    }
+  },
   Mutation: {
     async registerEvent(_, { input }, { authToken }) {
       const { data } = authToken

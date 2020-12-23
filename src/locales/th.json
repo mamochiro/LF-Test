@@ -13,5 +13,6 @@
 	"This user already have in farm": "This user already have in farm",
 	"User Id does not exist": "User Id does not exist",
 	"This worker does not exist": "This worker does not exist",
-	"This owner does not have a farm": "This owner does not have a farm"
+	"This owner does not have a farm": "This owner does not have a farm",
+	"This user does not have a farm": "This user does not have a farm"
 }

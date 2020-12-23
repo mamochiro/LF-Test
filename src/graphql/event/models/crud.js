@@ -30,3 +30,12 @@ export const destroy = async (id) => {
   const destroy = await Event.destroy({ where: { id } })
   return destroy
 }
+
+export const expenditure = async (ids) => {
+  const expenditure = await Event.sum('cost', {
+    where: {
+      gardenId: ids
+    }
+  })
+  return expenditure
+}

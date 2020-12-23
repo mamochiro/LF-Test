@@ -37,3 +37,12 @@ export const destroy = async (id) => {
 //   })
 //   return garden !== null
 // }
+
+export const gardens = async (farmId) => {
+  const gardens = await Garden.findAll({
+    where: {
+      farmId
+    }
+  })
+  return gardens
+}
