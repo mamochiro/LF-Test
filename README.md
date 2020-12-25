@@ -10,7 +10,6 @@
 
 [https://dbdiagram.io/d/5fe176529a6c525a03bbed53](https://dbdiagram.io/d/5fe176529a6c525a03bbed53)
 
--- password: 123456
 
 # Project Requirement
 
